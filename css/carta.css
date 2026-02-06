@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+
+  /* FOTO DELA COMO FUNDO DA PÁGINA */
+  background-image: url("../img/foto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Tela geral */
+.tela.carta {
+  min-height: 100vh;
+  padding: 40px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* REMOVE QUALQUER OVERLAY */
+.overlay-pagina,
+.overlay-foto {
+  display: none;
+}
+
+/* Card principal */
+.card {
+  width: 100%;
+  max-width: 750px;
+  border-radius: 22px;
+  overflow: hidden;
+
+  /* Efeito vidro (transparente) */
+  
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* Não precisamos mais da foto no topo */
+.card-foto::before {
+  display: none;
+}
+
+/* Conteúdo do texto */
+.conteudo-texto {
+  padding: 34px 30px 38px;
+  text-align: center;
+}
+
+/* Título */
+.conteudo-texto h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 25px;
+  color: #ff4d6d;
+}
+
+/* Parágrafos */
+.conteudo-texto p {
+  font-size: 16.5px;
+  line-height: 1.85;
+  margin-bottom: 18px;
+  color: #f5efef;
+}
+
+/* Assinatura */
+.conteudo-texto .assinatura {
+  margin-top: 30px;
+  font-style: italic;
+  color: #f8f7f7;
+}
+
+/* Botão música */
+.btn-musica {
+  margin-top: 26px;
+  padding: 14px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-musica:hover {
+  background: #e63950;
+  transform: scale(1.04);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .conteudo-texto {
+    padding: 26px 20px;
+  }
+
+  .conteudo-texto h2 {
+    font-size: 26px;
+  }
+
+  .conteudo-texto p {
+    font-size: 15.5px;
+  }
+}
+/* Animação da carta */
+@keyframes entradaCarta {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Aplica animação no card */
+.card {
+  animation: entradaCarta 1.2s ease forwards;
+}
+/* Texto aparece aos poucos */
+.conteudo-texto h2,
+.conteudo-texto p,
+.btn-musica {
+  opacity: 0;
+  animation: textoSuave 1s ease forwards;
+}
+
+.conteudo-texto h2 {
+  animation-delay: 0.4s;
+}
+
+.conteudo-texto p:nth-of-type(1) { animation-delay: 0.7s; }
+.conteudo-texto p:nth-of-type(2) { animation-delay: 1s; }
+.conteudo-texto p:nth-of-type(3) { animation-delay: 1.3s; }
+.conteudo-texto p:nth-of-type(4) { animation-delay: 1.6s; }
+.conteudo-texto p:nth-of-type(5) { animation-delay: 1.9s; }
+
+.btn-musica {
+  animation-delay: 2.2s;
+}
+
+@keyframes textoSuave {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
